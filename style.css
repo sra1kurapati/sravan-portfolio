@@ -1,0 +1,425 @@
+/* Reset some default browser styles */
+body, h1, h2, h3, p, ul, li, form {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    overflow-x: hidden;
+}
+
+/* Header Styles */
+header {
+    background-color: #fff;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #f0ad4e;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #f0ad4e;
+}
+
+/* Hero Section Styles */
+#hero {
+    background-color: #fff;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+#hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #333;
+    font-weight: bold;
+}
+
+#hero p {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    color: #555;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #f0ad4e;
+    color: #fff;
+    padding: 1.2rem 2.5rem;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+    margin: 0 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+    background-color: #e08e0b;
+}
+
+/* General Section Styles */
+section {
+    padding: 3rem 0;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #f0ad4e;
+    font-weight: bold;
+}
+
+section a {
+    color: #f0ad4e;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+section a:hover {
+    color: #e08e0b;
+}
+
+/* About Me Section Styles */
+#about {
+    background-color: #fff;
+    padding: 3rem 0;
+}
+
+/* Skills Section Styles */
+#skills {
+    background-color: #f0f0f0;
+    padding: 3rem 0;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.skill-card {
+    background-color: #fff;
+    padding: 1rem;
+    margin: 1rem;
+    width: 270px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.skill-card h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.progress-bar {
+    background-color: #ddd;
+    height: 10px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--percent);
+    background-color: #f0ad4e;
+    transition: width 2s ease;
+}
+
+.progress-bar span {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 0.8rem;
+}
+
+/* Certifications Section Styles */
+#certifications {
+    background-color: #f0f0f0;
+    padding: 3rem 0;
+}
+
+.certifications-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.certification-card {
+    background-color: #fff;
+    padding: 1.5rem;
+    margin: 1rem;
+    width: 350px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.certification-card img {
+    max-width: 130px;
+    margin-bottom: 1rem;
+}
+
+.certification-card h3 {
+    margin-bottom: 0.8rem;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.certification-card a {
+    color: #f0ad4e;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.certification-card a:hover {
+    color: #e08e0b;
+}
+
+/* Companies Worked With Section Styles */
+#companies {
+    background-color: #fff;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.companies-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.company-logo {
+    max-width: 150px;
+    margin: 2rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.company-logo:hover {
+    opacity: 1;
+}
+
+/* Testimonials Section Styles */
+#testimonials {
+    background-color: #f0f0f0;
+    padding: 3rem 0;
+    overflow: hidden;
+    position: relative;
+    height: 200px;
+}
+
+.testimonial-container {
+    display: flex;
+    width: auto;
+    overflow-x: auto;
+    padding: 20px;
+    scroll-behavior: smooth;
+    animation: scrollTestimonials 30s linear infinite;
+}
+
+@keyframes scrollTestimonials {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.testimonial-box {
+    min-width: 300px;
+    height: 120px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    color: #333;
+    font-size: 0.9rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 0 15px;
+    flex-shrink: 0;
+}
+
+/* Achievements Section Styles */
+#achievements {
+    background-color: #fff;
+    padding: 3rem 0;
+}
+
+#achievements ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+#achievements li {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+/* Publications Section Styles */
+#publications {
+    background-color: #f0f0f0;
+    padding: 3rem 0;
+}
+
+.publications-list {
+    list-style: none;
+    padding: 0;
+}
+
+.publications-list li {
+    margin-bottom: 1.5rem;
+}
+
+.publications-list li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.publications-list li a:hover {
+    color: #f0ad4e;
+}
+
+.publications-list li h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.publications-list li p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Contact Section Styles */
+#contact {
+    background-color: #fff;
+    padding: 3rem 0;
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.contact-buttons a {
+    margin: 0 1rem;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 0.8rem;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+    color: #f0ad4e;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #e08e0b;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        margin-top: 1rem;
+        flex-direction: column;
+        
+        }
+    .skill-card {
+        width: 100%;
+        max-width: 400px;
+    }
+     .certifications-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+   .certification-card {
+        width: 100%;
+        max-width: 400px;
+    }
+}
