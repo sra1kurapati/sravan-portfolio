@@ -1,261 +1,380 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sravan Kumar Kurapati: Cybersecurity Professional</title>
     <meta name="description" content="Sravan Kumar Kurapati is a cybersecurity professional specializing in AI-powered security, cloud security, and threat detection.">
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles & Configuration -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* A light gray background (slate-50) */
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        /* Fade-in animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Modal styles */
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        .modal-content {
+            transition: transform 0.25s ease;
+        }
+        /* Loading spinner */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4f46e5;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 
-<body>
+<body class="text-slate-700 antialiased">
 
-    <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">Sravan Kumar Kurapati</div>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#companies">Companies</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-slate-800 hover:text-indigo-600 transition-colors">Sravan Kumar Kurapati</a>
+            <ul class="hidden md:flex items-center space-x-6">
+                <li><a href="#about" class="font-medium hover:text-indigo-600 transition-colors">About</a></li>
+                <li><a href="#skills" class="font-medium hover:text-indigo-600 transition-colors">Skills</a></li>
+                <li><a href="#certifications" class="font-medium hover:text-indigo-600 transition-colors">Certifications</a></li>
+                <li><a href="#publications" class="font-medium hover:text-indigo-600 transition-colors">Publications</a></li>
+                <li><a href="#contact" class="bg-indigo-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-indigo-700 transition-all duration-300 transform hover:scale-105">Contact</a></li>
             </ul>
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-slate-100 focus:outline-none">
+                <svg id="menu-open-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                <svg id="menu-close-icon" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
         </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <a href="#about" class="block py-3 px-6 text-center font-medium hover:bg-slate-50 transition-colors">About</a>
+            <a href="#skills" class="block py-3 px-6 text-center font-medium hover:bg-slate-50 transition-colors">Skills</a>
+            <a href="#certifications" class="block py-3 px-6 text-center font-medium hover:bg-slate-50 transition-colors">Certifications</a>
+            <a href="#publications" class="block py-3 px-6 text-center font-medium hover:bg-slate-50 transition-colors">Publications</a>
+            <a href="#contact" class="block py-3 px-6 text-center font-medium bg-indigo-50 hover:bg-indigo-100 transition-colors">Contact</a>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <div class="hero-content">
-            <h1>Sravan Kumar Kurapati</h1>
-            <img src="sravan_profile.jpg" alt="Sravan Kumar Kurapati" class="profile-image">
-            <p>Cybersecurity Professional: AI-Powered Security, Cloud Security, Threat Detection</p>
-             <a href="#contact" class="cta-button">Get in Touch</a>
-            <a href="https://drive.google.com/file/d/1RqvCpvc4G4TIBR5vkzVsSl_BtV_nseHm/view?usp=sharing" class="cta-button"
-                target="_blank">Download Resume</a>
-        </div>
-    </section>
+    <main class="container mx-auto px-6 py-8 md:py-16">
 
-    <!-- About Me Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Security isn’t just about firewalls and encryption—it’s about trust, resilience, and the ability to thrive in a digital world that never stops evolving. I’m on a mission to bring clarity to cybersecurity, turning complexity into confidence. With a deep focus on AI-driven security, cloud protection, and proactive threat detection, I don’t just react to risks—I anticipate them. As a CompTIA Subject Matter Expert and a LinkedIn Top Voice in Information Security, I believe knowledge is meant to be shared, not siloed. The future is connected, and my goal is to help organizations navigate it securely, boldly, and with purpose.</p>        <a href="https://topmate.io/sravankumar_kurapati" class="cta-button" target="_blank">Book an Appointment</a>
-    </section>
-
-    <!-- Skills Section -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-container">
-        <div class="skill-card">
-            <h3>Threat Detection</h3>
-            <div class="progress-bar" style="--percent: 95%;"><span>95%</span></div>
-        </div>
-        <div class="skill-card">
-            <h3>AI-Driven Security</h3>
-            <div class="progress-bar" style="--percent: 90%;"><span>90%</span></div>
-        </div>
-        <div class="skill-card">
-            <h3>SIEM Tools (Splunk/ELK)</h3>
-            <div class="progress-bar" style="--percent: 85%;"><span>85%</span></div>
-        </div>
-        <div class="skill-card">
-            <h3>Cloud Security (AWS/Azure)</h3>
-            <div class="progress-bar" style="--percent: 80%;"><span>80%</span></div>
-        </div>
-        <div class="skill-card">
-            <h3>Penetration Testing</h3>
-            <div class="progress-bar" style="--percent: 75%;"><span>75%</span></div>
-        </div>
-        <div class="skill-card">
-            <h3>NIST Frameworks</h3>
-            <div class="progress-bar" style="--percent: 90%;"><span>90%</span></div>
-        </div>
-        <div class="skill-card">
-            <h3>Incident Response</h3>
-            <div class="progress-bar" style="--percent: 88%;"><span>88%</span></div>
-        </div>
-        <div class="skill-card">
-            <h3>Data Loss Prevention (DLP)</h3>
-            <div class="progress-bar" style="--percent: 82%;"><span>82%</span></div>
-        </div>
-        <div class="skill-card">
-            <h3>Vulnerability Management</h3>
-            <div class="progress-bar" style="--percent: 87%;"><span>87%</span></div>
-        </div>
-        <div class="skill-card">
-            <h3>Security Audits</h3>
-            <div class="progress-bar" style="--percent: 92%;"><span>92%</span></div>
-        </div>
-          <div class="skill-card">
-            <h3>Network Security</h3>
-            <div class="progress-bar" style="--percent: 82%;"><span>82%</span></div>
-        </div>
-        <div class="skill-card">
-            <h3>Application Security</h3>
-            <div class="progress-bar" style="--percent: 97%;"><span>97%</span></div>
-        </div>
-    </div>
-</section>
-
-    <!-- Certifications Section -->
-    <section id="certifications">
-        <h2>Certifications</h2>
-        <div class="certifications-container">
-            <div class="certification-card">
-                <img src="comptia_cysa.png" alt="CompTIA CySA+">
-                <h3>CompTIA CySA+</h3>
-                <a href="https://www.credly.com/users/sravankumar-kurapati/" target="_blank">View Credly Badge</a>
+        <!-- Hero Section -->
+        <section id="hero" class="text-center md:text-left md:flex md:items-center md:gap-12 min-h-[70vh]">
+            <div class="md:w-2/3">
+                <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-4 leading-tight">Sravan Kumar Kurapati</h1>
+                <p class="text-lg md:text-xl text-indigo-600 font-semibold mb-6">Cybersecurity Professional: AI-Powered Security, Cloud Security, & Threat Detection</p>
+                <p class="mb-8 max-w-2xl mx-auto md:mx-0">On a mission to bring clarity to cybersecurity, turning complexity into confidence. As a CompTIA SME and LinkedIn Top Voice, I don’t just react to risks—I anticipate them.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#contact" class="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-indigo-700 transition-all duration-300 transform hover:scale-105 shadow-lg">Get in Touch</a>
+                    <a href="https://drive.google.com/file/d/1RqvCpvc4G4TIBR5vkzVsSl_BtV_nseHm/view?usp=sharing" target="_blank" class="bg-white text-slate-700 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-slate-100 transition-all duration-300 border border-slate-300 shadow-lg">Download Resume</a>
+                </div>
             </div>
-            <div class="certification-card">
-                <img src="aws_solutions_architect.png" alt="AWS Certified Solutions Architect - Associate">
-                <h3>AWS Certified Solutions Architect - Associate</h3>
-                <a href="#" target="_blank">View Credly Badge</a>
+            <div class="mt-12 md:mt-0 md:w-1/3 flex justify-center">
+                 <img src="sravan_profile.jpg" alt="Sravan Kumar Kurapati" class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-2xl border-8 border-white">
             </div>
-            <div class="certification-card">
-                <img src="comptia_sme.png" alt="CompTIA Subject Matter Expert">
-                <h3>CompTIA Subject Matter Expert</h3>
-                <a href="#" target="_blank">View Credly Badge</a>
-            </div>
-            <div class="certification-card">
-                <img src="isc2_candidate.png" alt="ISC2 Candidate">
-                <h3>ISC2 Candidate</h3>
-                <a href="#" target="_blank">View Credly Badge</a>
-            </div>
-            <div class="certification-card">
-                <img src="google_cybersecurity.png" alt="Google Cybersecurity Certificate">
-                <h3>Google Cybersecurity Certificate</h3>
-                <a href="#" target="_blank">View Credly Badge</a>
-            </div>
-            <div class="certification-card">
-                <img src="ibm_watson_ai.png" alt="IBM watsonx.ai Technical Essentials">
-                <h3>IBM watsonx.ai Technical Essentials</h3>
-                <a href="#" target="_blank">View Credly Badge</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Companies Worked With Section -->
-    <section id="companies">
-        <h2>Companies Worked With</h2>
-        <div class="companies-container">
-            <img src="comptia_logo.png" alt="CompTIA" class="company-logo">
-            <img src="tcs_logo.png" alt="Tata Consultancy Services" class="company-logo">
-            <img src="apple_logo.png" alt="Apple" class="company-logo">
-            <!-- Add more company logos here -->
-        </div>
-    </section>
+        <!-- About Me Section -->
+        <section id="about" class="py-16 md:py-24 text-center fade-in-section">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-6">About Me</h2>
+            <p class="max-w-3xl mx-auto text-lg leading-relaxed">Security isn’t just about firewalls and encryption—it’s about trust, resilience, and the ability to thrive in a digital world that never stops evolving. With a deep focus on AI-driven security, cloud protection, and proactive threat detection, I believe knowledge is meant to be shared, not siloed. The future is connected, and my goal is to help organizations navigate it securely, boldly, and with purpose.</p>
+            <a href="https://topmate.io/sravankumar_kurapati" class="mt-8 inline-block bg-emerald-500 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-emerald-600 transition-all duration-300 transform hover:scale-105 shadow-lg" target="_blank">Book an Appointment</a>
+        </section>
 
-    <!-- Testimonials Section -->
-  <section id="testimonials">
-    <h2>Testimonials</h2>
-    <div class="testimonial-container">
-        <div class="testimonial-box">Sravankumar's expertise in AI and machine learning is evident. He is a visionary in cybersecurity! - Goutham</div>
-        <div class="testimonial-box">Sravankumar's knowledge transfer has enhanced our cybersecurity. - Sudheer</div>
-        <div class="testimonial-box">Sravankumar's guidance is transformative! - Supraja</div>
-        <div class="testimonial-box">Sravankumar's understanding has strengthened our measures. - Deepesh</div>
-        <div class="testimonial-box">Sravankumar is one of the greatest minds in cybersecurity! - Ganga</div>
-        <div class="testimonial-box">Sravankumar is a true pioneer in cybersecurity! - Devika</div>
-        <div class="testimonial-box">His innovative solutions and in-depth knowledge are unmatched. - Mooli</div>
-        <div class="testimonial-box">Had a great interaction and has a very good knowledge on penetration testing . - Manisha</div>
-        <div class="testimonial-box">Deep understanding of cyber attacks, especially in the realm of social engineering and phishing. - Deepesh</div>
-        <div class="testimonial-box">Sravankumar’s contributions to AI and cybersecurity are truly groundbreaking.- Sushma</div>
-        <div class="testimonial-box">Excellent guidance, Very patient and solved all my doubts. - Sai Krishna</div>
-    </div>
-</section>
+        <!-- Skills Section -->
+        <section id="skills" class="py-16 md:py-24 bg-white rounded-2xl shadow-lg fade-in-section">
+            <div class="text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-12">Core Competencies</h2>
+            </div>
+            <div id="skills-container" class="flex flex-wrap justify-center items-center gap-4 max-w-4xl mx-auto px-4">
+                <!-- Skills will be injected here by JavaScript -->
+            </div>
+        </section>
+        
+        <!-- Certifications Section -->
+        <section id="certifications" class="py-16 md:py-24 fade-in-section">
+            <div class="text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-12">Certifications & Credentials</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="certification-card"><img src="comptia_cysa.png" alt="CompTIA CySA+"><h3 class="font-bold text-lg text-slate-800">CompTIA CySA+</h3><a href="https://www.credly.com/users/sravankumar-kurapati/" target="_blank" class="credly-link">View Credly Badge</a></div>
+                <div class="certification-card"><img src="aws_solutions_architect.png" alt="AWS Certified Solutions Architect"><h3 class="font-bold text-lg text-slate-800">AWS Certified Solutions Architect</h3><a href="#" target="_blank" class="credly-link">View Credly Badge</a></div>
+                <div class="certification-card"><img src="comptia_sme.png" alt="CompTIA SME"><h3 class="font-bold text-lg text-slate-800">CompTIA Subject Matter Expert</h3><a href="#" target="_blank" class="credly-link">View Credly Badge</a></div>
+                <div class="certification-card"><img src="isc2_candidate.png" alt="ISC2 Candidate"><h3 class="font-bold text-lg text-slate-800">ISC2 Candidate</h3><a href="#" target="_blank" class="credly-link">View Credly Badge</a></div>
+                <div class="certification-card"><img src="google_cybersecurity.png" alt="Google Cybersecurity Certificate"><h3 class="font-bold text-lg text-slate-800">Google Cybersecurity Certificate</h3><a href="#" target="_blank" class="credly-link">View Credly Badge</a></div>
+                <div class="certification-card"><img src="ibm_watson_ai.png" alt="IBM Watsonx.ai"><h3 class="font-bold text-lg text-slate-800">IBM watsonx.ai Essentials</h3><a href="#" target="_blank" class="credly-link">View Credly Badge</a></div>
+            </div>
+        </section>
 
-     <!-- Achievements Section -->
-    <section id="achievements">
-        <h2>Achievements</h2>
-        <ul>
-            <li>Listed as a <a href="https://www.comptia.org/certifications/become-a-subject-matter-expert/current-smes"
-                    target="_blank">CompTIA Subject Matter Expert (SME)</a></li>
-            <li>LinkedIn Top Voice (Top 2%) in Information Security</li>
-        </ul>
-    </section>
-
-    <!-- Publications Section -->
-   <section id="publications">
-    <h2>Publications</h2>
-    <ul class="publications-list">
-        <li>
-            <a href="https://www.linkedin.com/pulse/why-email-security-fails-breaking-down-persistent-how-sravan-kumar-clquc/?trackingId=ly860W7SvmO8m5a%2BXpJ8rA%3D%3D" target="_blank">
-                <h3>Why Email Security Fails: Breaking Down Persistent Threats and How to Stop Them</h3>
-                <p>Every day, over 360 billion emails traverse the internet, yet nearly half are categorized as spam or malicious attempts. Email remains the backbone of global communication, essential for businesses, governments, and individuals alike. However, it is also one of the most exploited attack vectors, leading to billions of dollars in financial losses annually. Despite advanced defenses like AI-powered threat detection and layered protocols, attackers continue to evolve, leaving organizations vulnerable. Why does email security fail so often, and what can be done to reverse this trend?</p>
-            </a>
-        </li>
-        <li>
-            <a href="https://www.linkedin.com/posts/sravankumarkurrapati_emailsecurity-activity-7255111385427202048-pvsk?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrq7LUBMLT5Ns8KNjV1J5YOmwTvL8Z0oz8" target="_blank">
-                <h3>Understanding Email and Email Security: A NIST Cybersecurity Perspective</h3>
-                <p>In today’s digital age, email remains a critical communication tool, but it also poses significant security risks. This comprehensive guide dives deep into.</p>
-            </a>
-        </li>
-        <li>
-            <a href="https://www.linkedin.com/pulse/ai-unsung-hero-cybersecurity-battle-kurrapati-sravan-kumar-epuyc/" target="_blank">
-                <h3>AI: The Unsung Hero in the Cybersecurity Battle</h3>
-                <p>Imagine waking up one morning to find your entire digital life erased. Your bank accounts drained, your identity stolen, and your most personal information scattered across the dark web. This isn't the plot of a sci-fi thriller; it's a very real threat in our increasingly connected world.</p>
-            </a>
-        </li>
-        <li>
-            <a href="https://www.linkedin.com/posts/sravankumarkurrapati_incident-response-activity-7265030277268144128-Kyp9?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrq7LUBMLT5Ns8KNjV1J5YOmwTvL8Z0oz8" target="_blank">
-                <h3>Cyber incidents are inevitable, but how you respond makes all the difference.</h3>
-                <p>how #Cloudflare turned a phishing attack into a non-event, and how #Equifax’s lack of preparation cost them billions. These stories are a stark reminder:</p>
-            </a>
-        </li>
-        <li>
-            <a href="https://www.linkedin.com/posts/sravankumarkurrapati_security-controls-activity-7259244206710247426-W6mn?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrq7LUBMLT5Ns8KNjV1J5YOmwTvL8Z0oz8" target="_blank">
-                <h3>Understanding Security Controls in Cybersecurity</h3>
-                <p>In a world where almost everything is online, having strong security measures is more important than ever to keep data safe. Security controls are the different tools and practices we use to protect against cyber threats like hacking, phishing, and malware.</p>
-            </a>
-        </li>
-        <li>
-            <a href="https://www.linkedin.com/article/edit/7210173859570798592/" target="_blank">
-                <h3>From Friendship to Fear: A Chilling Tale of Social Engineering</h3>
-                <p>Let me share a story that serves as a stark reminder of the art of social engineering and the emotional havoc it can wreak.</p>
-            </a>
-        </li>
-        <li>
-            <a href="https://www.linkedin.com/posts/sravankumarkurrapati_osint-activity-7255217645820522496-Rurz?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrq7LUBMLT5Ns8KNjV1J5YOmwTvL8Z0oz8" target="_blank">
-                <h3>Unlocking the Power of Open-Source Intelligence (OSINT)</h3>
-                <p>Excited to share a comprehensive guide on OSINT (Open-Source Intelligence), a key player in modern cybersecurity and intelligence operations!</p>
-            </a>
-        </li>
-        <li>
-            <a href="https://www.linkedin.com/posts/sravankumarkurrapati_datasecurity-informationsrcurity-activity-7281292044805853184-dGdj?utm_source=share&utm_medium=member_desktop&rcm=ACoAACrq7LUBMLT5Ns8KNjV1J5YOmwTvL8Z0oz8" target="_blank">
-                <h3>Apple has agreed to a $95 million settlement to resolve a class-action lawsuit alleging that its virtual assistant Siri inadvertently recorded private conversations
-                </h3>
-                <p>Apple has agreed to a $95 million settlement to resolve a class-action lawsuit alleging that its virtual assistant Siri inadvertently recorded private conversations without user consent, raising significant privacy concerns and impacting users of Siri-enabled devices between 2011 and 2024.</p>
-            </a>
-        </li>
-             <li>
-            <a href="https://medium.com/@kumarsravankurapati" target="_blank">Medium Articles
+        <!-- Publications & Testimonials can remain as they are -->
+        <section id="publications" class="py-16 md:py-24 fade-in-section">
+            <div class="text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-12">Insights & Publications</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="https://www.linkedin.com/pulse/why-email-security-fails-breaking-down-persistent-how-sravan-kumar-clquc/?trackingId=ly860W7SvmO8m5a%2BXpJ8rA%3D%3D" target="_blank" class="publication-card">
+                    <h3 class="font-bold text-lg text-slate-800 mb-2">Why Email Security Fails</h3>
+                    <p class="text-sm">Breaking down persistent threats and how to stop them.</p>
                 </a>
-        </li>
-    </ul>
-</section>
+                <a href="https://www.linkedin.com/pulse/ai-unsung-hero-cybersecurity-battle-kurrapati-sravan-kumar-epuyc/" target="_blank" class="publication-card">
+                    <h3 class="font-bold text-lg text-slate-800 mb-2">AI: The Unsung Hero in Cybersecurity</h3>
+                    <p class="text-sm">This isn't sci-fi; it's a real threat AI can help fight.</p>
+                </a>
+                <a href="https://medium.com/@kumarsravankurapati" target="_blank" class="publication-card">
+                    <h3 class="font-bold text-lg text-slate-800 mb-2">Medium Articles</h3>
+                    <p class="text-sm">Explore in-depth articles on various cybersecurity topics.</p>
+                </a>
+            </div>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-                <div class="contact-buttons">
-            <a href="https://www.linkedin.com/in/sravankumarkurrapati/" target="_blank" class="cta-button">Connect on LinkedIn</a>
-            <a href="mailto:sravankumar0917@gmail.com" class="cta-button">Email Me</a>
-        </div>
-    </section>
+        <!-- Contact Section with Gemini Feature -->
+        <section id="contact" class="py-16 md:py-24 text-center fade-in-section">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Let's Connect</h2>
+            <p class="max-w-2xl mx-auto text-lg mb-8">I'm always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out directly or use the AI helper below to draft a message.</p>
+            
+            <div class="bg-white p-8 rounded-2xl shadow-lg max-w-2xl mx-auto mt-12 border">
+                <h3 class="text-2xl font-bold text-slate-800 mb-2">✨ AI-Powered Contact Helper</h3>
+                <p class="text-slate-500 mb-6">Describe your reason for contacting me, and I'll help you draft a LinkedIn message.</p>
+                <div class="flex flex-col sm:flex-row gap-4 mb-4">
+                    <input type="text" id="contact-reason" placeholder="e.g., a job opportunity at your company" class="flex-grow p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition">
+                    <button id="generate-message-btn" class="bg-indigo-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-indigo-700 transition-all duration-200 transform hover:scale-105 shadow-md">Generate Message</button>
+                </div>
+                <div id="message-output-container" class="hidden">
+                    <textarea id="generated-message" readonly class="w-full h-32 p-3 bg-slate-50 border border-gray-300 rounded-lg mb-2"></textarea>
+                    <button id="copy-message-btn" class="w-full bg-emerald-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-emerald-600 transition">Copy to Clipboard</button>
+                    <p id="copy-feedback" class="text-sm text-green-600 mt-2 h-4"></p>
+                </div>
+                 <div id="message-loader" class="hidden justify-center items-center p-4"><div class="loader"></div></div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
-        <p>© 2024 Sravan Kumar Kurapati | <a href="https://www.linkedin.com/in/sravankumarkurrapati/"
-                target="_blank">LinkedIn</a> | <a href="#">GitHub</a></p>
+    <footer class="bg-slate-800 text-slate-400 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>© 2024 Sravan Kumar Kurapati. All Rights Reserved.</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="https://www.linkedin.com/in/sravankumarkurrapati/" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
+                <a href="#" class="hover:text-white transition-colors">GitHub</a>
+                <a href="https://medium.com/@kumarsravankurapati" target="_blank" class="hover:text-white transition-colors">Medium</a>
+            </div>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
-</body>
+    <!-- Skill Explainer Modal -->
+    <div id="skill-modal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden opacity-0">
+        <div class="modal-content bg-white p-8 rounded-2xl shadow-2xl max-w-lg w-full transform scale-95">
+            <div class="flex justify-between items-start mb-4">
+                <h3 id="modal-skill-title" class="text-2xl font-bold text-slate-800"></h3>
+                <button id="close-modal-btn" class="p-1 rounded-full hover:bg-slate-200">&times;</button>
+            </div>
+            <div id="modal-loader" class="flex justify-center items-center h-24"><div class="loader"></div></div>
+            <p id="modal-skill-explanation" class="text-slate-600 leading-relaxed"></p>
+        </div>
+    </div>
+    
+    <script>
+        // --- Gemini API Call Function ---
+        async function callGemini(prompt) {
+            const apiKey = ""; // Leave empty, handled by environment
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+            
+            const payload = {
+                contents: [{ role: "user", parts: [{ text: prompt }] }]
+            };
 
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                
+                if (result.candidates && result.candidates.length > 0) {
+                    return result.candidates[0].content.parts[0].text;
+                } else {
+                    return "Sorry, I couldn't generate a response. Please try again.";
+                }
+            } catch (error) {
+                console.error("Gemini API call failed:", error);
+                return "An error occurred while contacting the AI. Please check the console for details.";
+            }
+        }
+
+        // --- Skills Section with Gemini Feature ---
+        const skills = [
+            'Threat Detection', 'AI-Driven Security', 'SIEM (Splunk/ELK)', 'Cloud Security (AWS/Azure)',
+            'Penetration Testing', 'NIST Frameworks', 'Incident Response', 'Data Loss Prevention (DLP)',
+            'Vulnerability Management', 'Security Audits', 'Network Security', 'Application Security'
+        ];
+        const skillsContainer = document.getElementById('skills-container');
+        const modal = document.getElementById('skill-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const modalSkillTitle = document.getElementById('modal-skill-title');
+        const modalSkillExplanation = document.getElementById('modal-skill-explanation');
+        const modalLoader = document.getElementById('modal-loader');
+
+        skills.forEach(skill => {
+            const skillWrapper = document.createElement('div');
+            skillWrapper.className = 'flex items-center gap-2 bg-indigo-100 rounded-full pr-3 group';
+            
+            const skillBadge = document.createElement('span');
+            skillBadge.className = 'text-indigo-800 text-sm font-semibold px-4 py-2';
+            skillBadge.textContent = skill;
+            
+            const infoButton = document.createElement('button');
+            infoButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-indigo-500 group-hover:text-indigo-800 transition-colors" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" /></svg>';
+            infoButton.className = 'explain-skill-btn';
+            infoButton.dataset.skill = skill;
+
+            skillWrapper.appendChild(skillBadge);
+            skillWrapper.appendChild(infoButton);
+            skillsContainer.appendChild(skillWrapper);
+        });
+        
+        skillsContainer.addEventListener('click', async (e) => {
+            const button = e.target.closest('.explain-skill-btn');
+            if (!button) return;
+            
+            const skill = button.dataset.skill;
+            modalSkillTitle.textContent = skill;
+            modalSkillExplanation.textContent = '';
+            modalLoader.style.display = 'flex';
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.classList.remove('opacity-0'), 10);
+            
+            const prompt = `Explain the cybersecurity skill "${skill}" in simple, clear terms for a non-technical audience. Keep the explanation under 80 words.`;
+            const explanation = await callGemini(prompt);
+            
+            modalLoader.style.display = 'none';
+            modalSkillExplanation.textContent = explanation;
+        });
+
+        const closeModal = () => {
+            modal.classList.add('opacity-0');
+            setTimeout(() => modal.classList.add('hidden'), 250);
+        };
+        closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+
+        // --- Contact Form Gemini Helper ---
+        const generateBtn = document.getElementById('generate-message-btn');
+        const reasonInput = document.getElementById('contact-reason');
+        const messageOutputContainer = document.getElementById('message-output-container');
+        const generatedMessageTextarea = document.getElementById('generated-message');
+        const copyBtn = document.getElementById('copy-message-btn');
+        const copyFeedback = document.getElementById('copy-feedback');
+        const messageLoader = document.getElementById('message-loader');
+
+        generateBtn.addEventListener('click', async () => {
+            const reason = reasonInput.value.trim();
+            if (!reason) {
+                alert("Please enter a reason for contacting.");
+                return;
+            }
+
+            messageLoader.style.display = 'flex';
+            messageOutputContainer.classList.add('hidden');
+
+            const prompt = `My name is Sravan Kumar Kurapati, a cybersecurity expert. Someone is visiting my portfolio and wants to contact me. Their stated reason is: "${reason}".
+            Please draft a professional, friendly, and concise LinkedIn connection request message they can send to me. The message should be from their perspective, mention their reason for reaching out, and be under 300 characters. Start with "Hi Sravan,".`;
+            
+            const message = await callGemini(prompt);
+
+            generatedMessageTextarea.value = message;
+            messageLoader.style.display = 'none';
+            messageOutputContainer.classList.remove('hidden');
+        });
+
+        copyBtn.addEventListener('click', () => {
+            generatedMessageTextarea.select();
+            document.execCommand('copy');
+            copyFeedback.textContent = "Copied to clipboard!";
+            setTimeout(() => copyFeedback.textContent = '', 2000);
+        });
+
+        // --- Standard Page Scripts ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuOpenIcon = document.getElementById('menu-open-icon');
+        const menuCloseIcon = document.getElementById('menu-close-icon');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuOpenIcon.classList.toggle('hidden');
+            menuCloseIcon.classList.toggle('hidden');
+        });
+        
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuOpenIcon.classList.remove('hidden');
+                menuCloseIcon.classList.add('hidden');
+            });
+        });
+
+        const sections = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        sections.forEach(section => observer.observe(section));
+        
+        const tailwindStyles = `
+            .certification-card { @apply bg-white p-6 rounded-xl shadow-md text-center flex flex-col items-center gap-4 transition-all duration-300 hover:shadow-xl hover:scale-105; }
+            .certification-card img { @apply h-20 w-20 object-contain mb-2; }
+            .credly-link { @apply text-indigo-600 font-semibold text-sm hover:underline; }
+            .publication-card { @apply block bg-white p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full; }
+            .testimonial-card { @apply bg-slate-50 p-6 rounded-xl border border-slate-200; }
+        `;
+        const styleSheet = document.createElement("style");
+        styleSheet.innerText = tailwindStyles;
+        document.head.appendChild(styleSheet);
+    </script>
+</body>
 </html>
